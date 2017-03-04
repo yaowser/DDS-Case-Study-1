@@ -1,5 +1,5 @@
 ---
-title: "Case Study 1"
+title: "MSDS 6306 401 Case Study 1"
 author: "Yao Yao"
 date: "March 4, 2017"
 output: pdf_document
@@ -9,22 +9,209 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+Introduction: 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
+import libraries to i
+```{r}
+#require library(downloader)
+#require library(ggplot2)
+#require library(reshape2)
 ```
 
-## Including Plots
+==Gather GDP and Educational data==
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+directory set up
+```{r}
+#setwd(".\\Data")
+getwd()
+list.files()
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+download files, read files into csv
+```{r}
+library(downloader)
+download('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv', destfile='GDPWeb.csv')
+download('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv', destfile='EducationalWeb.csv')
+list.files() #make sure the files are there
+```
+
+==clean GDP Data==
+
+import csv into raw GDP file and examine attributes
+```{r}
+GDPRaw <- read.csv('GDPWeb.csv',stringsAsFactors = FALSE, header = TRUE)
+str(GDPRaw)
+```
+
+eliminate header rows, rows without GDP, and unused columns, reset column count, examine data
+```{r}
+GDPData <- GDPRaw[5:194,1:5]
+rownames(GDPData) <- seq(length=nrow(GDPData))
+head(GDPData)
+tail(GDPData)
+```
+retitle columns and remove unused column
+```{r}
+colnames(GDPData) <- c("CountryCode","Ranking","x","Economy","US Dollars (millions)")
+head(GDPData)
+GDPData <- GDPData[,c("CountryCode","Ranking","Economy","US Dollars (millions)")]
+head(GDPData)
+```
+
+set the ranking as integer and GDP as numeric for later analysis, recheck attributes
+```{r}
+GDPData$Ranking <- as.integer(GDPData$Ranking)
+GDPData$`US Dollars (millions)` <- as.numeric(gsub(",", "", GDPData$`US Dollars (millions)`))
+str(GDPData)
+dim(GDPData)
+```
+
+==Clean Educational Data==
+
+import raw education data from csv and examine attributes
+```{r}
+EducationRaw <- read.csv('EducationalWeb.csv',stringsAsFactors = FALSE, header = TRUE)
+str(EducationRaw)
+dim(EducationRaw)
+```
+
+==Merge Education and GDP data==
+
+merge columns based on all rows, save into raw merge file, examine attributes
+```{r}
+MergeData1 <- merge(x = GDPData, y = EducationRaw, by ='CountryCode', all=TRUE)
+head(MergeData1)
+tail(MergeData1)
+dim(MergeData1)
+```
+
+remove merged columns based on lack of value in GDP, country, or GDP ranking
+examine attributes and reset column count based on country code
+```{r}
+MergeData2<-MergeData1[rowSums(is.na(MergeData1[,2:5]))==FALSE,]
+head(MergeData2)
+tail(MergeData2)
+dim(MergeData2)
+rownames(MergeData2) <- seq(length=nrow(MergeData2))
+```
+
+export data frames into csv file in the data directory
+```{r}
+write.csv(MergeData1, "MergeData1.csv")
+write.csv(MergeData2, "MergeData2.csv")
+write.csv(GDPRaw, "GDPRaw.csv")
+write.csv(GDPData, "GDPData.csv")
+write.csv(EducationRaw, "EducationRaw.csv")
+write.csv(GDPData, "GDPData.csv")
+```
+
+==analysis to answer questions==
+
+extract the number of rows with NA GDPs and number of matched rows
+```{r}
+print(paste0("Total Number of Rows in Merged Data: ", nrow(MergeData1)))
+Matches<-sum(is.na(MergeData1$`US Dollars (millions)`) == FALSE & is.na(MergeData1$Income.Group) == FALSE)
+print(paste0("Number of Matched Rows: ", Matches))
+NARanking<-sum(is.na(MergeData1$Ranking) == TRUE)
+print(paste0("Number of N/A Rankings: ", NARanking))
+NAEconomy<-sum(is.na(MergeData1$Economy) == TRUE)
+print(paste0("Number of N/A Economies: ", NAEconomy))
+NAGDP<-sum(is.na(MergeData1$`US Dollars (millions)`) == TRUE)
+print(paste0("Number of N/A GDPs: ", NAGDP))
+NAIncomeGroup<-sum(is.na(MergeData1$Income.Group) == TRUE)
+print(paste0("Number of N/A Income Groups: ", NAIncomeGroup))
+NATotal<-sum(is.na(MergeData1$Ranking) == TRUE| is.na(MergeData1$Economy) == TRUE | MergeData1$`US Dollars (millions)` == TRUE | is.na(MergeData1$Income.Group) == TRUE)
+print(paste0("Total Number of Unmatched Rows: ", NATotal))
+print(paste0("Number of Rows in Merged Data without N/A values: ", nrow(MergeData2)))
+
+```
+
+1) 189 countries has GDP values matching with educational data
+
+rank the merged data by ascending GDP, examine attributes and export dataset
+```{r}
+NegGDP <- MergeData2[order(-MergeData2$Ranking),] 
+head(NegGDP)
+str(NegGDP)
+write.csv(NegGDP, "NegGDP.csv")
+```
+
+find 13th country with the ascending GDP
+```{r}
+country13NegGDP<-NegGDP[13,3]
+country13NegGDP
+NegGDP[12:13,2:4]
+```
+2) country #13 from ascending GDP, but St. Kitts and Nevis and Grenada are tied at 12th
+St. Kitts is 13th because it comes second in the alphabet after Grenada
+
+Assign a subset of High Income OECD countries and find the mean of their GDP rank
+```{r}
+HIOECD <- MergeData2[ which(MergeData2$Income.Group=='High income: OECD'), ]
+head(HIOECD)
+write.csv(HIOECD, "HIOECD.csv")
+AvgGDPRank<- mean(HIOECD$Ranking)
+AvgGDPRank
+```
+
+Assign a subset of High Income NonOECD countries and find the mean of their GDP rank
+```{r}
+HINonOECD <- MergeData2[ which(MergeData2$Income.Group=='High income: nonOECD'), ]
+head(HINonOECD)
+write.csv(HINonOECD, "HINonOECD.csv")
+AvgGDPRank<- mean(HINonOECD$Ranking)
+AvgGDPRank
+```
+3) Average GDP rankings by income groups
+
+Plot country code and GDP in US dollars with income groupings as specific colors
+```{r}
+library(ggplot2)
+color.codes<-as.character(c("#3399FF", "#FF0000","#0000FF", "#00FF00", "#D95F02"))
+ggplot(data = NegGDP, aes(y = `US Dollars (millions)`, x =Income.Group, colour = Income.Group))+ 
+   geom_boxplot() + scale_y_log10() +
+  scale_colour_manual(breaks = NegGDP$Income.Group,values = unique(as.character(color.codes)))
+```
+4) boxplot distribution of log(GDP dollars) per income group
+
+separate the summary statistics of GDP by income groups
+```{r}
+tapply(NegGDP$`US Dollars (millions)`, NegGDP$Income.Group, summary)
+```
+5) the summary statistics of GDP by income groups
+
+breaks into 5 separate quantile groups, increment of 20%, writes quantiles into csv
+```{r}
+Quantiles<-cut(MergeData2$Ranking, breaks=quantile(MergeData2$Ranking,seq(0, 1, 0.2)))
+head(quantiles)
+write.csv(Quantiles, "Quantiles.csv")
+```
+Makes a table of GDP ranking quantile groups versus Income Group
+```{r}
+library(reshape2)
+table(MergeData2$Income.Group, Quantiles)
+```
+
+create a new table featuring GDP ranking, country, and Income group. examine attributes
+```{r}
+IncomeSub <- MergeData2[c(2,3,6)]
+head(IncomeSub)
+write.csv(IncomeSub, "IncomeSub.csv")
+```
+
+Find the subset of countries that are lower middle in income group and top 38 in GDP ranking
+```{r}
+LowerMiddleTop38 <- IncomeSub[which(IncomeSub$Ranking <= 38 & IncomeSub$Income.Group == "Lower middle income"),]
+LowerMiddleTop38
+write.csv(LowerMiddleTop38, "LowerMiddleTop38.csv")
+nrow(LowerMiddleTop38)
+```
+
+report the number of counties
+6) 5 lower income Countries with top 38 GDP
+
+Conclusion:
+
+
