@@ -1,6 +1,6 @@
 #directory set up
 
-#setwd("C:\\Users\\Yao\\Dropbox\\dds w7 MSDS 6306 401")
+#setwd(".\\Data")
 getwd()
 list.files()
 
