@@ -1,19 +1,14 @@
-#directory set up
+#==Gather GDP and Educational data==
 
+#directory set up
 #setwd(".\\Data")
 getwd()
 list.files()
 
-#import libraries/packages, not sure if all was used ??
+#import libraries/packages ** delete ones not used
 library(repmis)
 library(RCurl)
-install.packages('downloader')
 library(downloader)
-library(tidyr)
-library(dplyr)
-library(jsonlite)
-library(WDI)
-library(countrycode)
 library(ggplot2)
 
 #download files, read files into csv
@@ -22,6 +17,8 @@ download('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country
 
 #make sure the files are there
 list.files()
+
+#==clean GDP Data==
 
 #import csv into raw GDP file and examine attributes
 GDPraw <- read.csv('GDP.csv',stringsAsFactors = FALSE, header = TRUE)
@@ -33,7 +30,7 @@ rownames(GDPdata) <- seq(length=nrow(GDPdata))
 head(GDPdata)
 tail(GDPdata)
 
-#retitle columns and remove unused column ** do I have to be more specific??
+#retitle columns and remove unused column
 colnames(GDPdata) <- c("CountryCode","Ranking","x","Economy","US Dollars (millions)")
 head(GDPdata)
 GDPdata <- GDPdata[,c("CountryCode","Ranking","Economy","US Dollars (millions)")]
@@ -45,61 +42,69 @@ GDPdata$`US Dollars (millions)` <- as.numeric(gsub(",", "", GDPdata$`US Dollars 
 str(GDPdata)
 dim(GDPdata)
 
+#==Clean Educational Data==
+
 #import raw education data from csv and examine attributes 
 Educationraw <- read.csv('educational.csv',stringsAsFactors = FALSE, header = TRUE)
 str(Educationraw)
 dim(Educationraw)
 
-#examine country code overlap and differences between data sets
-table(GDPdata$CountryCode)
-table(Educationraw$CountryCode)
+#==Merge Education and GDP data==
 
 #merge columns based on all rows, save into raw merge file, examine attributes
 MergeData1 <- merge(x = GDPdata, y = Educationraw, by ='CountryCode', all=TRUE)
 head(MergeData1)
-dim(MergeData1)
 tail(MergeData1)
+dim(MergeData1)
 
-#remove columns based on lack of value in GDP, country, or GDP ranking
+#remove merged columns based on lack of value in GDP, country, or GDP ranking
 #examine attributes and reset column count based on country code
-MergeData2<-MergeData1[rowSums(is.na(MergeData1[,3:5]))==0,]
+MergeData2<-MergeData1[rowSums(is.na(MergeData1[,2:5]))==FALSE,]
 head(MergeData2)
-dim(MergeData2)
 tail(MergeData2)
+dim(MergeData2)
 rownames(MergeData2) <- seq(length=nrow(MergeData2))
 
-#extract thee number of rows with NA GDPs and number of matched rows
-NANumber<-rowSums(is.na(MergeData1[,3:4]))
-NANumber2<-sum(NANumber/2)
-NANumber2
-Match<-(nrow(MergeData2))
-Match
-#1) 189 countries match, 45 countries have NA GDP values, eliminated
-
-#technically, does not need to include, but need to see how the data is exported to csv file
+#export data frames into csv file in the data directory
 write.csv(MergeData1, "MergeData1.csv")
 write.csv(MergeData2, "MergeData2.csv")
+write.csv(GDPraw, "GDPraw.csv")
+write.csv(GDPdata, "GDPdata.csv")
+write.csv(Educationraw, "Educationraw.csv")
+write.csv(GDPdata, "GDPdata.csv")
 
-#rank the merged data by ascending GDP, examine attributes
-attach(MergeData2)
-NegGDP <- MergeData2[order(-Ranking),] 
+#==analysis to answer questions==
+
+#extract the number of rows with NA GDPs and number of matched rows
+Matches<-sum(is.na(MergeData1$`US Dollars (millions)`) == FALSE & is.na(MergeData1$Income.Group) == FALSE)
+Matches
+
+#1) 189 countries has GDP values, 45 countries have NA GDP values, eliminated
+
+#rank the merged data by ascending GDP, examine attributes and export dataset
+NegGDP <- MergeData2[order(-MergeData2$Ranking),] 
 head(NegGDP)
 str(NegGDP)
+write.csv(NegGDP, "NegGDP.csv")
 
 #find 13th country with the ascending GDP
 country13NegGDP<-NegGDP[13,3]
 country13NegGDP
-#2) country #13
+#2) country #13 from ascending GDP, but St. Kitts and Nevis and Grenada are tied at 12th
+NegGDP[12:13,2:4]
+#St. Kitts is 13th because it comes second in the alphabet after Grenada
 
 #Assign a subset of High Income OECD countries and find the mean of their GDP rank
 HIOECD <- MergeData2[ which(MergeData2$Income.Group=='High income: OECD'), ]
 head(HIOECD)
+write.csv(HIOECD, "HIOECD.csv")
 AvgGDPRank<- mean(HIOECD$Ranking)
 AvgGDPRank
 
 #Assign a subset of High Income NonOECD countries and find the mean of their GDP rank
 HINonOECD <- MergeData2[ which(MergeData2$Income.Group=='High income: nonOECD'), ]
 head(HINonOECD)
+write.csv(HINonOECD, "HINonOECD.csv")
 AvgGDPRank<- mean(HINonOECD$Ranking)
 AvgGDPRank
 #3) GDP rankings
@@ -109,20 +114,33 @@ color.codes<-as.character(c("#3399FF", "#FF0000","#0000FF", "#00FF00", "#D95F02"
 ggplot(data = NegGDP, aes(y = `US Dollars (millions)`, x =Income.Group, colour = Income.Group))+ 
    geom_boxplot() + scale_y_log10() +
   scale_colour_manual(breaks = NegGDP$Income.Group,values = unique(as.character(color.codes)))
-#4) gg plot
+#4) boxplot distribution of log(GDP dollars) per income group
 
-#create the 5 number quantile summary ** is this what they are looking for?
-summary(MergeData2$Ranking)
+#separate the summary statistics of GDP by income groups
+tapply(NegGDP$`US Dollars (millions)`, NegGDP$Income.Group, summary)
+#5) the summary statistics of GDP by income groups
+
+#breaks into 5 separate quantile groups, increment of 20%, writes quantiles into csv
+quantiles<-cut(MergeData2$Ranking, breaks=quantile(MergeData2$Ranking,seq(0, 1, 0.2)))
+head(quantiles)
+write.csv(quantiles, "quantiles.csv")
+
+library(reshape2)
+
+#Makes a table of GDP ranking quantile groups versus Income Group
+table(MergeData2$Income.Group, quantiles)
 
 #create a new table featuring GDP ranking, country, and Income group. examine attributes
 IncomeSub <- MergeData2[c(2,3,6)]
 head(IncomeSub)
+write.csv(IncomeSub, "IncomeSub.csv")
 
 #Find the subset of countries that are lower middle in income group and top 38 in GDP ranking
 LowerMiddleTop38 <- IncomeSub[which(IncomeSub$Ranking <= 38 & IncomeSub$Income.Group == "Lower middle income"),]
 LowerMiddleTop38
+write.csv(LowerMiddleTop38, "LowerMiddleTop38.csv")
 
 #report the number of counties
 nrow(LowerMiddleTop38)
 
-#5) 5 lower income Countries with top 38 GDP
+#6) 5 lower income Countries with top 38 GDP
