@@ -12,8 +12,8 @@ library(downloader)
 library(ggplot2)
 
 #download files, read files into csv
-download('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv', destfile='GDP.csv')
-download('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv', destfile='educational.csv')
+download('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv', destfile='GDPWeb.csv')
+download('https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv', destfile='EducationalWeb.csv')
 
 #make sure the files are there
 list.files()
@@ -21,38 +21,38 @@ list.files()
 #==clean GDP Data==
 
 #import csv into raw GDP file and examine attributes
-GDPraw <- read.csv('GDP.csv',stringsAsFactors = FALSE, header = TRUE)
-str(GDPraw)
+GDPRaw <- read.csv('GDPWeb.csv',stringsAsFactors = FALSE, header = TRUE)
+str(GDPRaw)
 
 #eliminate header rows, rows without GDP, and unused columns, reset column count, examine data
-GDPdata <- GDPraw[5:194,1:5]
-rownames(GDPdata) <- seq(length=nrow(GDPdata))
-head(GDPdata)
-tail(GDPdata)
+GDPData <- GDPRaw[5:194,1:5]
+rownames(GDPData) <- seq(length=nrow(GDPData))
+head(GDPData)
+tail(GDPData)
 
 #retitle columns and remove unused column
-colnames(GDPdata) <- c("CountryCode","Ranking","x","Economy","US Dollars (millions)")
-head(GDPdata)
-GDPdata <- GDPdata[,c("CountryCode","Ranking","Economy","US Dollars (millions)")]
-head(GDPdata)
+colnames(GDPData) <- c("CountryCode","Ranking","x","Economy","US Dollars (millions)")
+head(GDPData)
+GDPData <- GDPData[,c("CountryCode","Ranking","Economy","US Dollars (millions)")]
+head(GDPData)
 
 #set the ranking as integer and GDP as numeric for later analysis, recheck attributes
-GDPdata$Ranking <- as.integer(GDPdata$Ranking)
-GDPdata$`US Dollars (millions)` <- as.numeric(gsub(",", "", GDPdata$`US Dollars (millions)`))
-str(GDPdata)
-dim(GDPdata)
+GDPData$Ranking <- as.integer(GDPData$Ranking)
+GDPData$`US Dollars (millions)` <- as.numeric(gsub(",", "", GDPData$`US Dollars (millions)`))
+str(GDPData)
+dim(GDPData)
 
 #==Clean Educational Data==
 
 #import raw education data from csv and examine attributes 
-Educationraw <- read.csv('educational.csv',stringsAsFactors = FALSE, header = TRUE)
-str(Educationraw)
-dim(Educationraw)
+EducationRaw <- read.csv('EducationalWeb.csv',stringsAsFactors = FALSE, header = TRUE)
+str(EducationRaw)
+dim(EducationRaw)
 
 #==Merge Education and GDP data==
 
 #merge columns based on all rows, save into raw merge file, examine attributes
-MergeData1 <- merge(x = GDPdata, y = Educationraw, by ='CountryCode', all=TRUE)
+MergeData1 <- merge(x = GDPData, y = EducationRaw, by ='CountryCode', all=TRUE)
 head(MergeData1)
 tail(MergeData1)
 dim(MergeData1)
@@ -68,10 +68,10 @@ rownames(MergeData2) <- seq(length=nrow(MergeData2))
 #export data frames into csv file in the data directory
 write.csv(MergeData1, "MergeData1.csv")
 write.csv(MergeData2, "MergeData2.csv")
-write.csv(GDPraw, "GDPraw.csv")
-write.csv(GDPdata, "GDPdata.csv")
-write.csv(Educationraw, "Educationraw.csv")
-write.csv(GDPdata, "GDPdata.csv")
+write.csv(GDPRaw, "GDPRaw.csv")
+write.csv(GDPData, "GDPData.csv")
+write.csv(EducationRaw, "EducationRaw.csv")
+write.csv(GDPData, "GDPData.csv")
 
 #==analysis to answer questions==
 
@@ -79,7 +79,7 @@ write.csv(GDPdata, "GDPdata.csv")
 Matches<-sum(is.na(MergeData1$`US Dollars (millions)`) == FALSE & is.na(MergeData1$Income.Group) == FALSE)
 Matches
 
-#1) 189 countries has GDP values, 45 countries have NA GDP values, eliminated
+#1) 189 countries has GDP values matching with educational data
 
 #rank the merged data by ascending GDP, examine attributes and export dataset
 NegGDP <- MergeData2[order(-MergeData2$Ranking),] 
@@ -121,14 +121,14 @@ tapply(NegGDP$`US Dollars (millions)`, NegGDP$Income.Group, summary)
 #5) the summary statistics of GDP by income groups
 
 #breaks into 5 separate quantile groups, increment of 20%, writes quantiles into csv
-quantiles<-cut(MergeData2$Ranking, breaks=quantile(MergeData2$Ranking,seq(0, 1, 0.2)))
+Quantiles<-cut(MergeData2$Ranking, breaks=quantile(MergeData2$Ranking,seq(0, 1, 0.2)))
 head(quantiles)
-write.csv(quantiles, "quantiles.csv")
+write.csv(Quantiles, "Quantiles.csv")
 
 library(reshape2)
 
 #Makes a table of GDP ranking quantile groups versus Income Group
-table(MergeData2$Income.Group, quantiles)
+table(MergeData2$Income.Group, Quantiles)
 
 #create a new table featuring GDP ranking, country, and Income group. examine attributes
 IncomeSub <- MergeData2[c(2,3,6)]
