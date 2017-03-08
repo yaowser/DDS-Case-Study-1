@@ -1,0 +1,331 @@
+"","X","Gross.domestic.product.2012","X.1","X.2","X.3","X.4","X.5","X.6","X.7","X.8"
+"1","","",NA,"","","",NA,NA,NA,NA
+"2","","",NA,"","(millions of","",NA,NA,NA,NA
+"3","","Ranking",NA,"Economy","US dollars)","",NA,NA,NA,NA
+"4","","",NA,"","","",NA,NA,NA,NA
+"5","USA","1",NA,"United States"," 16,244,600 ","",NA,NA,NA,NA
+"6","CHN","2",NA,"China"," 8,227,103 ","",NA,NA,NA,NA
+"7","JPN","3",NA,"Japan"," 5,959,718 ","",NA,NA,NA,NA
+"8","DEU","4",NA,"Germany"," 3,428,131 ","",NA,NA,NA,NA
+"9","FRA","5",NA,"France"," 2,612,878 ","",NA,NA,NA,NA
+"10","GBR","6",NA,"United Kingdom"," 2,471,784 ","",NA,NA,NA,NA
+"11","BRA","7",NA,"Brazil"," 2,252,664 ","",NA,NA,NA,NA
+"12","RUS","8",NA,"Russian Federation"," 2,014,775 ","",NA,NA,NA,NA
+"13","ITA","9",NA,"Italy"," 2,014,670 ","",NA,NA,NA,NA
+"14","IND","10",NA,"India"," 1,841,710 ","",NA,NA,NA,NA
+"15","CAN","11",NA,"Canada"," 1,821,424 ","",NA,NA,NA,NA
+"16","AUS","12",NA,"Australia"," 1,532,408 ","",NA,NA,NA,NA
+"17","ESP","13",NA,"Spain"," 1,322,965 ","",NA,NA,NA,NA
+"18","MEX","14",NA,"Mexico"," 1,178,126 ","",NA,NA,NA,NA
+"19","KOR","15",NA,"Korea, Rep."," 1,129,598 ","",NA,NA,NA,NA
+"20","IDN","16",NA,"Indonesia"," 878,043 ","",NA,NA,NA,NA
+"21","TUR","17",NA,"Turkey"," 789,257 ","",NA,NA,NA,NA
+"22","NLD","18",NA,"Netherlands"," 770,555 ","",NA,NA,NA,NA
+"23","SAU","19",NA,"Saudi Arabia"," 711,050 ","",NA,NA,NA,NA
+"24","CHE","20",NA,"Switzerland"," 631,173 ","",NA,NA,NA,NA
+"25","SWE","21",NA,"Sweden"," 523,806 ","",NA,NA,NA,NA
+"26","IRN","22",NA,"Iran, Islamic Rep."," 514,060 ","",NA,NA,NA,NA
+"27","NOR","23",NA,"Norway"," 499,667 ","",NA,NA,NA,NA
+"28","POL","24",NA,"Poland"," 489,795 ","",NA,NA,NA,NA
+"29","BEL","25",NA,"Belgium"," 483,262 ","",NA,NA,NA,NA
+"30","ARG","26",NA,"Argentina"," 475,502 ","",NA,NA,NA,NA
+"31","AUT","27",NA,"Austria"," 394,708 ","",NA,NA,NA,NA
+"32","ZAF","28",NA,"South Africa"," 384,313 ","",NA,NA,NA,NA
+"33","VEN","29",NA,"Venezuela, RB"," 381,286 ","",NA,NA,NA,NA
+"34","COL","30",NA,"Colombia"," 369,606 ","",NA,NA,NA,NA
+"35","THA","31",NA,"Thailand"," 365,966 ","",NA,NA,NA,NA
+"36","ARE","32",NA,"United Arab Emirates"," 348,595 ","",NA,NA,NA,NA
+"37","DNK","33",NA,"Denmark"," 314,887 ","",NA,NA,NA,NA
+"38","MYS","34",NA,"Malaysia"," 305,033 ","",NA,NA,NA,NA
+"39","SGP","35",NA,"Singapore"," 274,701 ","",NA,NA,NA,NA
+"40","CHL","36",NA,"Chile"," 269,869 ","",NA,NA,NA,NA
+"41","HKG","37",NA,"Hong Kong SAR, China"," 263,259 ","",NA,NA,NA,NA
+"42","EGY","38",NA,"Egypt, Arab Rep."," 262,832 ","",NA,NA,NA,NA
+"43","NGA","39",NA,"Nigeria"," 262,597 ","",NA,NA,NA,NA
+"44","ISR","40",NA,"Israel"," 258,217 ","",NA,NA,NA,NA
+"45","PHL","41",NA,"Philippines"," 250,182 ","",NA,NA,NA,NA
+"46","GRC","42",NA,"Greece"," 249,099 ","",NA,NA,NA,NA
+"47","FIN","43",NA,"Finland"," 247,546 ","",NA,NA,NA,NA
+"48","PAK","44",NA,"Pakistan"," 225,143 ","",NA,NA,NA,NA
+"49","PRT","45",NA,"Portugal"," 212,274 ","",NA,NA,NA,NA
+"50","IRL","46",NA,"Ireland"," 210,771 ","",NA,NA,NA,NA
+"51","IRQ","47",NA,"Iraq"," 210,280 ","",NA,NA,NA,NA
+"52","DZA","48",NA,"Algeria"," 205,789 ","",NA,NA,NA,NA
+"53","PER","49",NA,"Peru"," 203,790 ","",NA,NA,NA,NA
+"54","KAZ","50",NA,"Kazakhstan"," 203,521 ","",NA,NA,NA,NA
+"55","CZE","51",NA,"Czech Republic"," 196,446 ","",NA,NA,NA,NA
+"56","ROM","52",NA,"Romania"," 192,711 ","",NA,NA,NA,NA
+"57","UKR","53",NA,"Ukraine"," 176,309 ","",NA,NA,NA,NA
+"58","QAT","54",NA,"Qatar"," 171,476 ","",NA,NA,NA,NA
+"59","NZL","55",NA,"New Zealand"," 167,347 ","",NA,NA,NA,NA
+"60","KWT","56",NA,"Kuwait"," 160,913 ","",NA,NA,NA,NA
+"61","VNM","57",NA,"Vietnam"," 155,820 ","",NA,NA,NA,NA
+"62","HUN","58",NA,"Hungary"," 124,600 ","",NA,NA,NA,NA
+"63","BGD","59",NA,"Bangladesh"," 116,355 ","",NA,NA,NA,NA
+"64","AGO","60",NA,"Angola"," 114,147 ","",NA,NA,NA,NA
+"65","PRI","61",NA,"Puerto Rico"," 101,496 ","",NA,NA,NA,NA
+"66","MAR","62",NA,"Morocco"," 95,982 ","a",NA,NA,NA,NA
+"67","SVK","63",NA,"Slovak Republic"," 91,149 ","",NA,NA,NA,NA
+"68","ECU","64",NA,"Ecuador"," 84,040 ","",NA,NA,NA,NA
+"69","SYR","65",NA,"Syrian Arab Republic"," 73,672 ","",NA,NA,NA,NA
+"70","OMN","66",NA,"Oman"," 69,972 ","",NA,NA,NA,NA
+"71","CUB","67",NA,"Cuba"," 68,234 ","",NA,NA,NA,NA
+"72","AZE","68",NA,"Azerbaijan"," 66,605 ","",NA,NA,NA,NA
+"73","BLR","69",NA,"Belarus"," 63,267 ","",NA,NA,NA,NA
+"74","LKA","70",NA,"Sri Lanka"," 59,423 ","",NA,NA,NA,NA
+"75","HRV","71",NA,"Croatia"," 59,228 ","",NA,NA,NA,NA
+"76","DOM","72",NA,"Dominican Republic"," 59,047 ","",NA,NA,NA,NA
+"77","SDN","73",NA,"Sudan"," 58,769 ","b",NA,NA,NA,NA
+"78","LUX","74",NA,"Luxembourg"," 55,178 ","",NA,NA,NA,NA
+"79","UZB","75",NA,"Uzbekistan"," 51,113 ","",NA,NA,NA,NA
+"80","BGR","76",NA,"Bulgaria"," 50,972 ","",NA,NA,NA,NA
+"81","GTM","77",NA,"Guatemala"," 50,234 ","",NA,NA,NA,NA
+"82","URY","78",NA,"Uruguay"," 49,920 ","",NA,NA,NA,NA
+"83","TUN","79",NA,"Tunisia"," 45,662 ","",NA,NA,NA,NA
+"84","SVN","80",NA,"Slovenia"," 45,279 ","",NA,NA,NA,NA
+"85","CRI","81",NA,"Costa Rica"," 45,104 ","",NA,NA,NA,NA
+"86","MAC","82",NA,"Macao SAR, China"," 43,582 ","",NA,NA,NA,NA
+"87","LBN","83",NA,"Lebanon"," 42,945 ","",NA,NA,NA,NA
+"88","LTU","84",NA,"Lithuania"," 42,344 ","",NA,NA,NA,NA
+"89","ETH","85",NA,"Ethiopia"," 41,605 ","",NA,NA,NA,NA
+"90","GHA","86",NA,"Ghana"," 40,711 ","",NA,NA,NA,NA
+"91","KEN","87",NA,"Kenya"," 40,697 ","",NA,NA,NA,NA
+"92","SRB","88",NA,"Serbia"," 37,489 ","",NA,NA,NA,NA
+"93","PAN","89",NA,"Panama"," 36,253 ","",NA,NA,NA,NA
+"94","YEM","90",NA,"Yemen, Rep."," 35,646 ","",NA,NA,NA,NA
+"95","TKM","91",NA,"Turkmenistan"," 35,164 ","",NA,NA,NA,NA
+"96","JOR","92",NA,"Jordan"," 31,015 ","",NA,NA,NA,NA
+"97","BHR","93",NA,"Bahrain"," 29,044 ","",NA,NA,NA,NA
+"98","LVA","94",NA,"Latvia"," 28,373 ","",NA,NA,NA,NA
+"99","TZA","95",NA,"Tanzania"," 28,242 ","c",NA,NA,NA,NA
+"100","BOL","96",NA,"Bolivia"," 27,035 ","",NA,NA,NA,NA
+"101","PRY","97",NA,"Paraguay"," 25,502 ","",NA,NA,NA,NA
+"102","CMR","98",NA,"Cameroon"," 25,322 ","",NA,NA,NA,NA
+"103","CIV","99",NA,"Côte d'Ivoire"," 24,680 ","",NA,NA,NA,NA
+"104","SLV","100",NA,"El Salvador"," 23,864 ","",NA,NA,NA,NA
+"105","TTO","101",NA,"Trinidad and Tobago"," 23,320 ","",NA,NA,NA,NA
+"106","CYP","102",NA,"Cyprus"," 22,767 ","d",NA,NA,NA,NA
+"107","EST","103",NA,"Estonia"," 22,390 ","",NA,NA,NA,NA
+"108","ZMB","104",NA,"Zambia"," 20,678 ","",NA,NA,NA,NA
+"109","AFG","105",NA,"Afghanistan"," 20,497 ","",NA,NA,NA,NA
+"110","UGA","106",NA,"Uganda"," 19,881 ","",NA,NA,NA,NA
+"111","NPL","107",NA,"Nepal"," 18,963 ","",NA,NA,NA,NA
+"112","HND","108",NA,"Honduras"," 18,434 ","",NA,NA,NA,NA
+"113","GAB","109",NA,"Gabon"," 18,377 ","",NA,NA,NA,NA
+"114","GNQ","110",NA,"Equatorial Guinea"," 17,697 ","",NA,NA,NA,NA
+"115","BIH","111",NA,"Bosnia and Herzegovina"," 17,466 ","",NA,NA,NA,NA
+"116","ZAR","112",NA,"Congo, Dem. Rep."," 17,204 ","",NA,NA,NA,NA
+"117","BRN","113",NA,"Brunei Darussalam"," 16,954 ","",NA,NA,NA,NA
+"118","GEO","114",NA,"Georgia"," 15,747 ","e",NA,NA,NA,NA
+"119","PNG","115",NA,"Papua New Guinea"," 15,654 ","",NA,NA,NA,NA
+"120","JAM","116",NA,"Jamaica"," 14,755 ","",NA,NA,NA,NA
+"121","BWA","117",NA,"Botswana"," 14,504 ","",NA,NA,NA,NA
+"122","MOZ","118",NA,"Mozambique"," 14,244 ","",NA,NA,NA,NA
+"123","SEN","119",NA,"Senegal"," 14,046 ","",NA,NA,NA,NA
+"124","KHM","120",NA,"Cambodia"," 14,038 ","",NA,NA,NA,NA
+"125","COG","121",NA,"Congo, Rep."," 13,678 ","",NA,NA,NA,NA
+"126","ISL","122",NA,"Iceland"," 13,579 ","",NA,NA,NA,NA
+"127","NAM","123",NA,"Namibia"," 13,072 ","",NA,NA,NA,NA
+"128","TCD","124",NA,"Chad"," 12,887 ","",NA,NA,NA,NA
+"129","ALB","125",NA,"Albania"," 12,648 ","",NA,NA,NA,NA
+"130","NIC","126",NA,"Nicaragua"," 10,507 ","",NA,NA,NA,NA
+"131","MUS","127",NA,"Mauritius"," 10,486 ","",NA,NA,NA,NA
+"132","BFA","128",NA,"Burkina Faso"," 10,441 ","",NA,NA,NA,NA
+"133","MLI","129",NA,"Mali"," 10,308 ","",NA,NA,NA,NA
+"134","MNG","130",NA,"Mongolia"," 10,271 ","",NA,NA,NA,NA
+"135","SSD","131",NA,"South Sudan"," 10,220 ","",NA,NA,NA,NA
+"136","MDG","132",NA,"Madagascar"," 9,975 ","",NA,NA,NA,NA
+"137","ARM","133",NA,"Armenia"," 9,951 ","",NA,NA,NA,NA
+"138","ZWE","134",NA,"Zimbabwe"," 9,802 ","",NA,NA,NA,NA
+"139","MKD","135",NA,"Macedonia, FYR"," 9,613 ","",NA,NA,NA,NA
+"140","LAO","136",NA,"Lao PDR"," 9,418 ","",NA,NA,NA,NA
+"141","MLT","137",NA,"Malta"," 8,722 ","",NA,NA,NA,NA
+"142","BHS","138",NA,"Bahamas, The"," 8,149 ","",NA,NA,NA,NA
+"143","HTI","139",NA,"Haiti"," 7,843 ","",NA,NA,NA,NA
+"144","BEN","140",NA,"Benin"," 7,557 ","",NA,NA,NA,NA
+"145","MDA","141",NA,"Moldova"," 7,253 ","f",NA,NA,NA,NA
+"146","RWA","142",NA,"Rwanda"," 7,103 ","",NA,NA,NA,NA
+"147","TJK","143",NA,"Tajikistan"," 6,972 ","",NA,NA,NA,NA
+"148","NER","144",NA,"Niger"," 6,773 ","",NA,NA,NA,NA
+"149","KGZ","145",NA,"Kyrgyz Republic"," 6,475 ","",NA,NA,NA,NA
+"150","KSV","146",NA,"Kosovo"," 6,445 ","",NA,NA,NA,NA
+"151","MCO","147",NA,"Monaco"," 6,075 ","",NA,NA,NA,NA
+"152","GIN","148",NA,"Guinea"," 5,632 ","",NA,NA,NA,NA
+"153","BMU","149",NA,"Bermuda"," 5,474 ","",NA,NA,NA,NA
+"154","SUR","150",NA,"Suriname"," 5,012 ","",NA,NA,NA,NA
+"155","MNE","151",NA,"Montenegro"," 4,373 ","",NA,NA,NA,NA
+"156","MWI","152",NA,"Malawi"," 4,264 ","",NA,NA,NA,NA
+"157","BRB","153",NA,"Barbados"," 4,225 ","",NA,NA,NA,NA
+"158","MRT","154",NA,"Mauritania"," 4,199 ","",NA,NA,NA,NA
+"159","FJI","155",NA,"Fiji"," 3,908 ","",NA,NA,NA,NA
+"160","TGO","156",NA,"Togo"," 3,814 ","",NA,NA,NA,NA
+"161","SLE","157",NA,"Sierra Leone"," 3,796 ","",NA,NA,NA,NA
+"162","SWZ","158",NA,"Swaziland"," 3,744 ","",NA,NA,NA,NA
+"163","ERI","159",NA,"Eritrea"," 3,092 ","",NA,NA,NA,NA
+"164","GUY","160",NA,"Guyana"," 2,851 ","",NA,NA,NA,NA
+"165","ABW","161",NA,"Aruba"," 2,584 ","",NA,NA,NA,NA
+"166","BDI","162",NA,"Burundi"," 2,472 ","",NA,NA,NA,NA
+"167","LSO","163",NA,"Lesotho"," 2,448 ","",NA,NA,NA,NA
+"168","MDV","164",NA,"Maldives"," 2,222 ","",NA,NA,NA,NA
+"169","CAF","165",NA,"Central African Republic"," 2,184 ","",NA,NA,NA,NA
+"170","CPV","166",NA,"Cape Verde"," 1,827 ","",NA,NA,NA,NA
+"171","BTN","167",NA,"Bhutan"," 1,780 ","",NA,NA,NA,NA
+"172","LBR","168",NA,"Liberia"," 1,734 ","",NA,NA,NA,NA
+"173","BLZ","169",NA,"Belize"," 1,493 ","",NA,NA,NA,NA
+"174","TMP","170",NA,"Timor-Leste"," 1,293 ","",NA,NA,NA,NA
+"175","LCA","171",NA,"St. Lucia"," 1,239 ","",NA,NA,NA,NA
+"176","ATG","172",NA,"Antigua and Barbuda"," 1,134 ","",NA,NA,NA,NA
+"177","SYC","173",NA,"Seychelles"," 1,129 ","",NA,NA,NA,NA
+"178","SLB","174",NA,"Solomon Islands"," 1,008 ","",NA,NA,NA,NA
+"179","GMB","175",NA,"Gambia, The"," 917 ","",NA,NA,NA,NA
+"180","GNB","176",NA,"Guinea-Bissau"," 822 ","",NA,NA,NA,NA
+"181","VUT","177",NA,"Vanuatu"," 787 ","",NA,NA,NA,NA
+"182","GRD","178",NA,"Grenada"," 767 ","",NA,NA,NA,NA
+"183","KNA","178",NA,"St. Kitts and Nevis"," 767 ","",NA,NA,NA,NA
+"184","VCT","180",NA,"St. Vincent and the Grenadines"," 713 ","",NA,NA,NA,NA
+"185","WSM","181",NA,"Samoa"," 684 ","",NA,NA,NA,NA
+"186","COM","182",NA,"Comoros"," 596 ","",NA,NA,NA,NA
+"187","DMA","183",NA,"Dominica"," 480 ","",NA,NA,NA,NA
+"188","TON","184",NA,"Tonga"," 472 ","",NA,NA,NA,NA
+"189","FSM","185",NA,"Micronesia, Fed. Sts."," 326 ","",NA,NA,NA,NA
+"190","STP","186",NA,"São Tomé and Principe"," 263 ","",NA,NA,NA,NA
+"191","PLW","187",NA,"Palau"," 228 ","",NA,NA,NA,NA
+"192","MHL","188",NA,"Marshall Islands"," 182 ","",NA,NA,NA,NA
+"193","KIR","189",NA,"Kiribati"," 175 ","",NA,NA,NA,NA
+"194","TUV","190",NA,"Tuvalu"," 40 ","",NA,NA,NA,NA
+"195","","",NA,"","","",NA,NA,NA,NA
+"196","ASM","",NA,"American Samoa","..","",NA,NA,NA,NA
+"197","ADO","",NA,"Andorra","..","",NA,NA,NA,NA
+"198","CYM","",NA,"Cayman Islands","..","",NA,NA,NA,NA
+"199","CHI","",NA,"Channel Islands","..","",NA,NA,NA,NA
+"200","CUW","",NA,"Curaçao","..","",NA,NA,NA,NA
+"201","DJI","",NA,"Djibouti","","",NA,NA,NA,NA
+"202","FRO","",NA,"Faeroe Islands","..","",NA,NA,NA,NA
+"203","PYF","",NA,"French Polynesia","..","",NA,NA,NA,NA
+"204","GRL","",NA,"Greenland","..","",NA,NA,NA,NA
+"205","GUM","",NA,"Guam","..","",NA,NA,NA,NA
+"206","IMY","",NA,"Isle of Man","..","",NA,NA,NA,NA
+"207","PRK","",NA,"Korea, Dem. Rep.","..","",NA,NA,NA,NA
+"208","LBY","",NA,"Libya","..","",NA,NA,NA,NA
+"209","LIE","",NA,"Liechtenstein","..","",NA,NA,NA,NA
+"210","MMR","",NA,"Myanmar","..","",NA,NA,NA,NA
+"211","NCL","",NA,"New Caledonia","..","",NA,NA,NA,NA
+"212","MNP","",NA,"Northern Mariana Islands","..","",NA,NA,NA,NA
+"213","SMR","",NA,"San Marino","..","",NA,NA,NA,NA
+"214","SXM","",NA,"Sint Maarten (Dutch part)","..","",NA,NA,NA,NA
+"215","SOM","",NA,"Somalia","..","",NA,NA,NA,NA
+"216","MAF","",NA,"St. Martin (French part)","..","",NA,NA,NA,NA
+"217","TCA","",NA,"Turks and Caicos Islands","..","",NA,NA,NA,NA
+"218","VIR","",NA,"Virgin Islands (U.S.)","..","",NA,NA,NA,NA
+"219","WBG","",NA,"West Bank and Gaza","..","",NA,NA,NA,NA
+"220","","",NA,"","","",NA,NA,NA,NA
+"221","WLD","",NA,"World","72,440,449","",NA,NA,NA,NA
+"222","","",NA,"","","",NA,NA,NA,NA
+"223","LIC","",NA,"Low income","504,431","",NA,NA,NA,NA
+"224","MIC","",NA,"Middle income","22,249,909","",NA,NA,NA,NA
+"225","LMC","",NA,"  Lower middle income","4,823,811","",NA,NA,NA,NA
+"226","UMC","",NA,"  Upper middle income","17,426,690","",NA,NA,NA,NA
+"227","LMY","",NA,"Low & middle income","22,769,282","",NA,NA,NA,NA
+"228","EAP","",NA,"  East Asia & Pacific","10,329,684","",NA,NA,NA,NA
+"229","ECA","",NA,"  Europe & Central Asia","1,887,950","",NA,NA,NA,NA
+"230","LAC","",NA,"  Latin America & Caribbean","5,344,028","",NA,NA,NA,NA
+"231","MNA","",NA,"  Middle East & North Africa","1,540,807","",NA,NA,NA,NA
+"232","SAS","",NA,"  South Asia","2,286,093","",NA,NA,NA,NA
+"233","SSA","",NA,"  Sub-Saharan Africa","1,289,813","",NA,NA,NA,NA
+"234","HIC","",NA,"High income","49,717,634","",NA,NA,NA,NA
+"235","EMU","",NA,"  Euro area","12,192,344","",NA,NA,NA,NA
+"236","","",NA,"","","",NA,NA,NA,NA
+"237","",".. Not available.  ",NA,"","","",NA,NA,NA,NA
+"238","","Note: Rankings include only those economies with confirmed GDP estimates. Figures in italics are for 2011 or 2010.",NA,"","","",NA,NA,NA,NA
+"239","","a. Includes Former Spanish Sahara.  b. Excludes South Sudan  c. Covers mainland Tanzania only. d. Data are for the area ",NA,"","","",NA,NA,NA,NA
+"240","","controlled by the government of the Republic of Cyprus.   e. Excludes Abkhazia and South Ossetia.  f. Excludes Transnistria.",NA,"","","",NA,NA,NA,NA
+"241","","",NA,"","","",NA,NA,NA,NA
+"242","","",NA,"","","",NA,NA,NA,NA
+"243","","",NA,"","","",NA,NA,NA,NA
+"244","","",NA,"","","",NA,NA,NA,NA
+"245","","",NA,"","","",NA,NA,NA,NA
+"246","","",NA,"","","",NA,NA,NA,NA
+"247","","",NA,"","","",NA,NA,NA,NA
+"248","","",NA,"","","",NA,NA,NA,NA
+"249","","",NA,"","","",NA,NA,NA,NA
+"250","","",NA,"","","",NA,NA,NA,NA
+"251","","",NA,"","","",NA,NA,NA,NA
+"252","","",NA,"","","",NA,NA,NA,NA
+"253","","",NA,"","","",NA,NA,NA,NA
+"254","","",NA,"","","",NA,NA,NA,NA
+"255","","",NA,"","","",NA,NA,NA,NA
+"256","","",NA,"","","",NA,NA,NA,NA
+"257","","",NA,"","","",NA,NA,NA,NA
+"258","","",NA,"","","",NA,NA,NA,NA
+"259","","",NA,"","","",NA,NA,NA,NA
+"260","","",NA,"","","",NA,NA,NA,NA
+"261","","",NA,"","","",NA,NA,NA,NA
+"262","","",NA,"","","",NA,NA,NA,NA
+"263","","",NA,"","","",NA,NA,NA,NA
+"264","","",NA,"","","",NA,NA,NA,NA
+"265","","",NA,"","","",NA,NA,NA,NA
+"266","","",NA,"","","",NA,NA,NA,NA
+"267","","",NA,"","","",NA,NA,NA,NA
+"268","","",NA,"","","",NA,NA,NA,NA
+"269","","",NA,"","","",NA,NA,NA,NA
+"270","","",NA,"","","",NA,NA,NA,NA
+"271","","",NA,"","","",NA,NA,NA,NA
+"272","","",NA,"","","",NA,NA,NA,NA
+"273","","",NA,"","","",NA,NA,NA,NA
+"274","","",NA,"","","",NA,NA,NA,NA
+"275","","",NA,"","","",NA,NA,NA,NA
+"276","","",NA,"","","",NA,NA,NA,NA
+"277","","",NA,"","","",NA,NA,NA,NA
+"278","","",NA,"","","",NA,NA,NA,NA
+"279","","",NA,"","","",NA,NA,NA,NA
+"280","","",NA,"","","",NA,NA,NA,NA
+"281","","",NA,"","","",NA,NA,NA,NA
+"282","","",NA,"","","",NA,NA,NA,NA
+"283","","",NA,"","","",NA,NA,NA,NA
+"284","","",NA,"","","",NA,NA,NA,NA
+"285","","",NA,"","","",NA,NA,NA,NA
+"286","","",NA,"","","",NA,NA,NA,NA
+"287","","",NA,"","","",NA,NA,NA,NA
+"288","","",NA,"","","",NA,NA,NA,NA
+"289","","",NA,"","","",NA,NA,NA,NA
+"290","","",NA,"","","",NA,NA,NA,NA
+"291","","",NA,"","","",NA,NA,NA,NA
+"292","","",NA,"","","",NA,NA,NA,NA
+"293","","",NA,"","","",NA,NA,NA,NA
+"294","","",NA,"","","",NA,NA,NA,NA
+"295","","",NA,"","","",NA,NA,NA,NA
+"296","","",NA,"","","",NA,NA,NA,NA
+"297","","",NA,"","","",NA,NA,NA,NA
+"298","","",NA,"","","",NA,NA,NA,NA
+"299","","",NA,"","","",NA,NA,NA,NA
+"300","","",NA,"","","",NA,NA,NA,NA
+"301","","",NA,"","","",NA,NA,NA,NA
+"302","","",NA,"","","",NA,NA,NA,NA
+"303","","",NA,"","","",NA,NA,NA,NA
+"304","","",NA,"","","",NA,NA,NA,NA
+"305","","",NA,"","","",NA,NA,NA,NA
+"306","","",NA,"","","",NA,NA,NA,NA
+"307","","",NA,"","","",NA,NA,NA,NA
+"308","","",NA,"","","",NA,NA,NA,NA
+"309","","",NA,"","","",NA,NA,NA,NA
+"310","","",NA,"","","",NA,NA,NA,NA
+"311","","",NA,"","","",NA,NA,NA,NA
+"312","","",NA,"","","",NA,NA,NA,NA
+"313","","",NA,"","","",NA,NA,NA,NA
+"314","","",NA,"","","",NA,NA,NA,NA
+"315","","",NA,"","","",NA,NA,NA,NA
+"316","","",NA,"","","",NA,NA,NA,NA
+"317","","",NA,"","","",NA,NA,NA,NA
+"318","","",NA,"","","",NA,NA,NA,NA
+"319","","",NA,"","","",NA,NA,NA,NA
+"320","","",NA,"","","",NA,NA,NA,NA
+"321","","",NA,"","","",NA,NA,NA,NA
+"322","","",NA,"","","",NA,NA,NA,NA
+"323","","",NA,"","","",NA,NA,NA,NA
+"324","","",NA,"","","",NA,NA,NA,NA
+"325","","",NA,"","","",NA,NA,NA,NA
+"326","","",NA,"","","",NA,NA,NA,NA
+"327","","",NA,"","","",NA,NA,NA,NA
+"328","","",NA,"","","",NA,NA,NA,NA
+"329","","",NA,"","","",NA,NA,NA,NA
+"330","","",NA,"","","",NA,NA,NA,NA
