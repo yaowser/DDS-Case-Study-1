@@ -23,8 +23,8 @@ Import the required libraries needed for the gathering and analysis procedures
 
 Directory set up and confirmation of files and location
 ```{r}
-#setwd(".\\Data"), set as data directory
-getwd() #confrim
+#setwd(".\\Data") # set as data directory
+getwd()
 list.files()
 ```
 
@@ -157,7 +157,7 @@ which results the alphabetical order to dictate St. Kitts at 13th place in ranki
 ```{r}
 country13NegGDP<-NegGDP[13,3]
 print(paste0("The 13th country in ascending order by GDP is: ", country13NegGDP))
-NegGDP[12:13,2:4]
+NegGDP[12:13,c(2, 3, 4, 6)]
 ```
 Question 2) Sort the data frame in ascending order by GDP (so United States is last).
 What is the 13th country in the resulting data frame?
@@ -239,7 +239,7 @@ Breaks the GDP rankings into 5 separate quantile groups, with increment of 20%, 
 the quantiles into csv. Negdata is used because factors and levels are defined previously
 ```{r}
 Quantiles<-cut(NegGDP$Ranking, breaks=quantile(NegGDP$Ranking,seq(0, 1, 0.2)))
-head(quantiles)
+head(Quantiles)
 write.csv(Quantiles, "Quantiles.csv")
 ```
 Using reshape2, a table shows the number of contries per income group that falls inside 
