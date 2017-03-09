@@ -28,7 +28,6 @@ NegGDP <- MergeData2[order(MergeData2$`US Dollars (millions)`),]
 head(NegGDP)
 write.csv(NegGDP, "NegGDP.csv")
 
-
 #Breaks the GDP rankings into 5  quantile groups, with increment of 20%, and writes
 #the quantiles into csv. NegGDP is used because of predefined factors
 Quantiles<-cut(NegGDP$Ranking, breaks=quantile(NegGDP$Ranking,seq(0, 1, 0.2)))

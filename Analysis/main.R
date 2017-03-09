@@ -24,7 +24,7 @@ NumberMatchedValues <- function(MergeData1){
   print(paste0("Number of Rows in Merged Data with complete values: ", nrow(MergeData2)))
 }
 
-Find13thGDPAscending <- function(NegGDP, x){
+FindCountryByAscendingGDP <- function(NegGDP, x){
 #Code to find 13th country with the ascending GDP. 
 #More code to show that there is a tie between St. Kitts and Grenada at 12th place,
 #which results the alphabetical order to dictate St. Kitts at 13th place in ranking.
@@ -32,7 +32,7 @@ Find13thGDPAscending <- function(NegGDP, x){
   print(paste0("The 13th country in ascending order by GDP is: ", country13NegGDP))
 }
 
-FindException <- function(NegGDP, x, y) {
+FindSubsetByAscendingGDP <- function(NegGDP, x, y) {
   pander(NegGDP[x:y,2:5])
 }
 
@@ -87,7 +87,7 @@ GDPRankingsPerQuantByIncome <- function(NegGDP, Quantiles, x) {
   pander(table(NegGDP$Income.Group, Quantiles))
 }
 
-CountriesByIncomeGDPRank <- function(NegGDP, y, z) {
+CountriesByGDPRankIncomeGroup <- function(NegGDP, y, z) {
   LowerMiddleTop38 <- NegGDP[which(NegGDP$Ranking <= y & 
                                    NegGDP$Income.Group == z),2:5]
   pander(LowerMiddleTop38[seq(dim(LowerMiddleTop38)[1],1),])
