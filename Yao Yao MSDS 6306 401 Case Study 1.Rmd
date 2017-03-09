@@ -45,53 +45,31 @@ main_helper.R downloads the required packages and datasets; it also cleans and m
 source("main_helper.R")
 ```
 
+
+```{r}
+main()
+```
+
 #==Analysis to answer questions==
 
 ##0) Include code to count the number of missing values for each variable used in the analysis:
 
-Extract the number of rows from origianl merged raw data, 
-Track the number of cumulative matched rows, number of N/A values in
-Rankings, Economies, GDP, Income groups, and cumulative unmatched rows
+
 ```{r}
-print(paste0("Total Number of Rows in Merged Data: ", nrow(MergeData1)))
-NARanking<-sum(is.na(MergeData1$Ranking) == TRUE)
-print(paste0("Number of N/A Rankings: ", NARanking))
-NAEconomy<-sum(is.na(MergeData1$Economy) == TRUE)
-print(paste0("Number of N/A Economies: ", NAEconomy))
-NAGDP<-sum(is.na(MergeData1$`US Dollars (millions)`) == TRUE)
-print(paste0("Number of N/A GDPs: ", NAGDP))
-NAIncomeGroup<-sum(is.na(MergeData1$Income.Group) == TRUE)
-print(paste0("Number of N/A Income Groups: ", NAIncomeGroup))
-NATotal<-sum(is.na(MergeData1$Ranking) == TRUE| is.na(MergeData1$Economy) == TRUE |
-               MergeData1$`US Dollars (millions)` == TRUE | 
-               is.na(MergeData1$Income.Group) == TRUE)
-print(paste0("Total Number of Unmatched Rows: ", NATotal))
+NumberMissingValues(MergeData1)
 ```
 For each of the variables utilized in the analysis, there are 45 N/A values for rankings, economies, and GDP. There is one country with a N/A value for income groups and is also eliminated, which results in a total of 46 unmatched rows
 
 ##1) Merge the data based on the country shortcode. How many of the IDs match?
 ```{r}
-print(paste0("Number of Rows in Merged Data without N/A values: ", nrow(MergeData2)))
+NumberMatchedValues(MergeData2)
 ```
 After merging the data by country shortcode and eliminating pertinent rows with N/A values, 189 countries has GDP, educational, and ranking values matching with income group.
 
 ##2) Sort the data frame in ascending order by GDP (so United States is last). What is the 13th country in the resulting data frame?
 
-Rank the merged data by ascending GDP ranking, examine attributes and export dataset
 ```{r}
-NegGDP <- MergeData2[order(MergeData2$`US Dollars (millions)`),] 
-head(NegGDP)
-str(NegGDP)
-write.csv(NegGDP, "NegGDP.csv")
-```
-
-Code to find 13th country with the ascending GDP. 
-More code to show that there is a tie between St. Kitts and Grenada at 12th place,
-which results the alphabetical order to dictate St. Kitts at 13th place in ranking.
-```{r}
-country13NegGDP<-NegGDP[13,3]
-print(paste0("The 13th country in ascending order by GDP is: ", country13NegGDP))
-NegGDP[12:13,]
+Find13thGDPAscending(MergeData2, 13)
 ```
 From ascending GDP, country #13 is St. Kitts and Nevis in the resulting data frame NegGDP.
 Technically, St. Kitts and Grenada are tied at 12th in ascending GDP and further ascending
@@ -102,39 +80,19 @@ alphabetical sorting makes St. Kitts appear at 13th and Grenada at 12th place.
 Assign a subset of High Income OECD countries from income group and
 find the mean of their GDP rank
 ```{r}
-HIOECD <- MergeData2[ which(MergeData2$Income.Group=='High income: OECD'), ]
-head(HIOECD)
-write.csv(HIOECD, "HIOECD.csv")
-HAvgGDPRank<- mean(HIOECD$Ranking)
-print(paste0("The average GDP ranking of high income, OECD countries is: ",
-             round(HAvgGDPRank, digits = 2)))
+AverageGDPByGroup(MergeData2, "High income: OECD")
 ```
 
-Assign a subset of High Income nonOECD countries from income group and
-find the mean of their GDP rank
+
 ```{r}
-HINonOECD <- MergeData2[ which(MergeData2$Income.Group=='High income: nonOECD'), ]
-head(HINonOECD)
-write.csv(HINonOECD, "HINonOECD.csv")
-NAvgGDPRank<- mean(HINonOECD$Ranking)
-print(paste0("The average GDP ranking of high income, nonOECD countries is: ",
-             round(NAvgGDPRank, digits = 2)))
+AverageGDPByGroup(MergeData2, "High income: nonOECD")
 ```
 By income group, the average GDP rankings for High income: OECD countries is 32.97 and for High income: nonOECD countries is 91.91. High income OECD countries have higher GDP than that of High income nonOECD countries. Higher GDP ranking suggests that high income countries that are open to free world trade and development are more prosperous.
 
 ##4) Show the distribution of GDP value for all the countries and color plots by income group. Use ggplot2 to create your plot.
 
-Using ggplot2, individual countries with matching rows in GDP are logarithmically plotted
-by separately colored income group box plots to show quantile distribution.
 ```{r}
-NegGDP$Income.Group <- factor(NegGDP$Income.Group, levels=c("Low income", 
-        "Lower middle income", "Upper middle income", "High income: nonOECD", 
-        "High income: OECD"))
-color.codes<-as.character(c("#3399FF", "#FF0000","#0000FF", "#00FF00", "#D95F02"))
-ggplot(data = NegGDP, aes(y = `US Dollars (millions)`, x = Income.Group, 
-                          colour = Income.Group))+ geom_boxplot() + scale_y_log10() +
-                          scale_colour_manual(breaks = NegGDP$Income.Group,values =
-                          unique(as.character(color.codes)))
+GraphBoxPlotsByGroup(NegGDP, "#3399FF", "#FF0000","#0000FF", "#00FF00", "#D95F02")
 ```
 
 Graphically by boxplot log distribution, it was expected that the median GDP of countries grouped by income group rose from low income to lower middle income to upper middle income. For high income countries, there is a discrepancy between OECD and nonOECD countries. If the country is high income but does not allow free global trade and development, they have an median GDP lower than that of upper middle income countries and about equivalent to that of lower middle income countries. Otherwise, if the high income country is an OECD member, they countinue the trend of GDP prosperity. In addition, the giant range of counties that fall into the lower middle income category suggests that the distinction of countries by income groups is not solely based on GDP qualities alone.
@@ -143,7 +101,7 @@ Graphically by boxplot log distribution, it was expected that the median GDP of 
 
 GDP summary statistics of countries based on income groups
 ```{r}
-tapply(NegGDP$`US Dollars (millions)`, NegGDP$Income.Group, summary)
+SummaryStats(NegGDP)
 ```
 From the boxplot log distribution of countries' GDP separated by income groups, the quantile distributions were plotted by range, interquantile range, and medians. The summary statistics show that the mean GDP per income group is very different than that of the median, with the mean being 0.8x, 9.5x, 4.3x, 2.6x, and 2x greater than that of the median for their respective income groups by ascending classification.
 
@@ -151,27 +109,10 @@ The range overlap in country GDP further suggests that countries separated by in
 
 ##6) Cut the GDP ranking into 5 separate quantile groups. Make a table versus Income.Group. How many countries are Lower middle income but among the 38 nations with highest GDP?
 
-Breaks the GDP rankings into 5 separate quantile groups, with increment of 20%, and writes
-the quantiles into csv. Negdata is used because factors and levels are defined previously
 ```{r}
-Quantiles<-cut(NegGDP$Ranking, breaks=quantile(NegGDP$Ranking,seq(0, 1, 0.2)))
-head(Quantiles)
-write.csv(Quantiles, "Quantiles.csv")
-```
-Using reshape2, a table shows the number of contries per income group that falls inside 
-their respective 20% quantile groups based on individual GDP ranking
-```{r}
-table(MergeData2$Income.Group, Quantiles)
+GDPRankingsPerQuantByIncome(NegGDP, 0.2, 38, "Lower middle income")
 ```
 It was expected that low income has more countries that fall inside the higher quantile GDP rankings while that of the higher income: OECD has more that fall inside the lower GDP quantile rankings. Lower middle income has a concentration of counties that fall inside ther higher GDP rankings with some of its countries in the lower quantile GDP rankings. Upper middle income countries has an even distribution of countries in each quantile category while that of high income: nonOECD countries have countries falling in the middle GDP quantile rankings. GDP ranking 1 to 38 is the top 20% quantile of all the nations. There are 5 lower middle income countries among the 38 nations with the highest GDP.
-
-Document which countries from lower middle income group has the top 38 GDP rankings
-```{r}
-LowerMiddleTop38 <- NegGDP[which(NegGDP$Ranking <= 38 & 
-                                   NegGDP$Income.Group == "Lower middle income"),]
-LowerMiddleTop38
-write.csv(LowerMiddleTop38, "LowerMiddleTop38.csv")
-```
 
 #Conclusion: 
 

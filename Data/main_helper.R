@@ -15,3 +15,6 @@ source("gather.R")
 source("clean_GDP.R")
 source("clean_education.R")
 source("merge.R")
+main <- function(){
+  source("main.R")
+}
