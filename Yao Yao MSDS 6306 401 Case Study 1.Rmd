@@ -9,10 +9,8 @@ output:
     toc: true
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-require("knitr")
-opts_knit$set(root.dir = ".\\Data")
+```{r setup, cache = F, include=FALSE}
+knitr::opts_chunk$set(error = TRUE)
 ```
 
 #Introduction:
@@ -41,16 +39,16 @@ This case study is an exercise of gathering, cleaning, and analyzing data using 
 #Directions to run the code:
 
 main_helper.R downloads the required packages and datasets; it also cleans and merges the datasets for analysis
+```{r, warning= FALSE, message = FALSE}
+source(".\\Data\\main_helper.R")
+```
+
+main.R is used for the analysis
 ```{r, warning= FALSE}
-source("main_helper.R")
+source(".\\Analysis\\main.R")
 ```
 
-
-```{r}
-main()
-```
-
-#==Analysis to answer questions==
+#Analysis
 
 ##0) Include code to count the number of missing values for each variable used in the analysis:
 
@@ -69,7 +67,11 @@ After merging the data by country shortcode and eliminating pertinent rows with 
 ##2) Sort the data frame in ascending order by GDP (so United States is last). What is the 13th country in the resulting data frame?
 
 ```{r}
-Find13thGDPAscending(MergeData2, 13)
+Find13thGDPAscending(NegGDP, 13)
+```
+This shows tie 
+```{r}
+FindException(NegGDP, 12, 13)
 ```
 From ascending GDP, country #13 is St. Kitts and Nevis in the resulting data frame NegGDP.
 Technically, St. Kitts and Grenada are tied at 12th in ascending GDP and further ascending
@@ -109,8 +111,13 @@ The range overlap in country GDP further suggests that countries separated by in
 
 ##6) Cut the GDP ranking into 5 separate quantile groups. Make a table versus Income.Group. How many countries are Lower middle income but among the 38 nations with highest GDP?
 
+Cut the countries by quantile
 ```{r}
-GDPRankingsPerQuantByIncome(NegGDP, 0.2, 38, "Lower middle income")
+GDPRankingsPerQuantByIncome(NegGDP, Quantiles, 0.2)
+```
+Find the countries by name
+```{r}
+CountriesByIncomeGDPRank(NegGDP, 38, "Lower middle income")
 ```
 It was expected that low income has more countries that fall inside the higher quantile GDP rankings while that of the higher income: OECD has more that fall inside the lower GDP quantile rankings. Lower middle income has a concentration of counties that fall inside ther higher GDP rankings with some of its countries in the lower quantile GDP rankings. Upper middle income countries has an even distribution of countries in each quantile category while that of high income: nonOECD countries have countries falling in the middle GDP quantile rankings. GDP ranking 1 to 38 is the top 20% quantile of all the nations. There are 5 lower middle income countries among the 38 nations with the highest GDP.
 

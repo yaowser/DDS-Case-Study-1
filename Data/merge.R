@@ -22,3 +22,20 @@ write.csv(GDPRaw, "GDPRaw.csv")
 write.csv(GDPData, "GDPData.csv")
 write.csv(EducationRaw, "EducationRaw.csv")
 write.csv(GDPData, "GDPData.csv")
+
+#Rank the merged data by ascending GDP ranking, examine attributes and export dataset
+NegGDP <- MergeData2[order(MergeData2$`US Dollars (millions)`),] 
+head(NegGDP)
+write.csv(NegGDP, "NegGDP.csv")
+
+
+#Breaks the GDP rankings into 5  quantile groups, with increment of 20%, and writes
+#the quantiles into csv. NegGDP is used because of predefined factors
+Quantiles<-cut(NegGDP$Ranking, breaks=quantile(NegGDP$Ranking,seq(0, 1, 0.2)))
+head(Quantiles)
+write.csv(Quantiles, "Quantiles.csv")
+#Document which countries from lower middle income group has the top 38 GDP rankings
+LowerMiddleTop38 <- NegGDP[which(NegGDP$Ranking <= 38 & 
+                                   NegGDP$Income.Group == "Lower middle income"),]
+LowerMiddleTop38
+write.csv(LowerMiddleTop38, "LowerMiddleTop38.csv")

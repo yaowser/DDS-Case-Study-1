@@ -6,15 +6,11 @@ InstallLoadMultPackage <- function(pkg){
     install.packages(new.pkg, dependencies = TRUE)
   sapply(pkg, require, character.only = TRUE)
 }
-InstallLoadMultPackage(c("downloader", "ggplot2", "reshape2"))
-
-
+InstallLoadMultPackage(c("downloader", "ggplot2", "reshape2", "pander"))
+setwd(".//Data")
 getwd()
 list.files()
 source("gather.R")
 source("clean_GDP.R")
 source("clean_education.R")
 source("merge.R")
-main <- function(){
-  source("main.R")
-}
