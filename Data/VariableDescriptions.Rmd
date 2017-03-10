@@ -1,0 +1,23 @@
+---
+title: "VariableDescriptions"
+author: "Yao Yao"
+date: "March 9, 2017"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Column name description:
+
+1. CountryCode -- The 3 letter country shortcode \newline
+2. Ranking -- Country ranking by GDP with 1 being the highest \newline
+3. Economy -- Country name \newline
+4. US Dollars (millions) -- Gross Domestic Product of a certain country, in U.S. Dollars \newline
+5. Income.Group -- The income group of a country
+
+##Problems with the data:
+
+1. The countries that have missing values for those columns listed above are not included in the analysis \newline
+2. The download file is updated regularly and may create different results later on
