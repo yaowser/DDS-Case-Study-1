@@ -1,3 +1,10 @@
+# Title: MSDS 6306 401 Case Study 1: Exploration of Countries’ GDPs Vs Income Groups
+# Author: Yao Yao
+# Date: March 9, 2017
+# R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+# Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+#all the data is in the data directory, hence setting it there
 setwd(".//Data")
 
 #Extract the number of rows from origianl merged raw data, 
@@ -43,7 +50,7 @@ AverageGDPByGroup <- function(MergeData2, x) {
   print(paste0("The average GDP ranking of ", x, " countries is: ", y))
 }
 
-  
+#=Unused code, could be salvaged later if I was better at coding how to combine functions=
 #AverageGDPByIncome <- function(MergeData2, x){
 #  HIOECD <- MergeData2[ which(MergeData2$Income.Group=='High income: OECD'), ]
 #  head(HIOECD)
@@ -61,24 +68,29 @@ AverageGDPByGroup <- function(MergeData2, x) {
 #print(paste0("The average GDP ranking of high income, nonOECD countries is: ",
 #             round(NAvgGDPRank, digits = 2)))
 
+
+
 #Using ggplot2, individual countries with matching rows in GDP are logarithmically plotted
 #by separately colored income group box plots to show distribution.
 GraphBoxPlotsByGroup <- function(NegGDP, v, w, x, y, z) {
   NegGDP$Income.Group <- factor(NegGDP$Income.Group, levels=c("Low income", 
-                                                              "Lower middle income", "Upper middle income",
-                                                              "High income: nonOECD", "High income: OECD"))
+                              "Lower middle income", "Upper middle income",
+                              "High income: nonOECD", "High income: OECD"))
   color.codes<-as.character(c(v, w, x, y, z))
   ggplot(data = NegGDP, aes(y = `US Dollars (millions)`, x = Income.Group, 
                           colour = Income.Group))+ geom_boxplot() + scale_y_log10() +
                           scale_colour_manual(breaks = NegGDP$Income.Group,values =
-                          unique(as.character(color.codes)))
+                          unique(as.character(color.codes))) +
+                          ggtitle("Log Distribution of Countries' GDP by Income Group") +
+                          labs(x="Income Group",y="GDP (U.S. Dollars (Millions))")
 }
+
+#summary stats of a certain dataframe
 SummaryStats <- function(NegGDP) {
   pander(tapply(NegGDP$`US Dollars (millions)`, NegGDP$Income.Group, summary))
 }
 
 #GDP rankings per quantile by income group
-
 GDPRankingsPerQuantByIncome <- function(NegGDP, Quantiles, x) {
   Quantiles<-cut(NegGDP$Ranking, breaks=quantile(NegGDP$Ranking,seq(0, 1, x)))
   #Using reshape2, a table shows the number of contries per income group that falls inside 
@@ -87,6 +99,7 @@ GDPRankingsPerQuantByIncome <- function(NegGDP, Quantiles, x) {
   pander(table(NegGDP$Income.Group, Quantiles))
 }
 
+#find the countries based on GDP rank and income group
 CountriesByGDPRankIncomeGroup <- function(NegGDP, y, z) {
   LowerMiddleTop38 <- NegGDP[which(NegGDP$Ranking <= y & 
                                    NegGDP$Income.Group == z),2:5]
