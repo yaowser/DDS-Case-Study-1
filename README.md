@@ -12,9 +12,9 @@ To use Github as a repository for R code and data files as well as to use R mark
 
 # Root Directory:
 
-"Yao Yao MSDS 6306 401 Case Study 1.Rmd" is the R markdown file of the paper that is fully follows the rubric of annotating code, calling .R files from other directories, and completes the analysis with conclusive statements
+"Yao Yao MSDS 6306 401 Case Study 1 Paper.Rmd" is the R markdown file of the paper that is fully follows the rubric of annotating code, calling .R files from other directories, and completes the analysis with conclusive statements
 
-"Yao_Yao_MSDS_6306_401_Case_Study_1.pdf" is the final knitted paper that combines text, code, and output into one conclusive file ready for submission
+"Yao_Yao_MSDS_6306_401_Case_Study_1_Paper.pdf" is the final knitted paper that combines text, code, and output into one conclusive file ready for submission
 
 "DDS-Case-Study-1.Rproj" is the R project file for Rstudio
 
@@ -31,6 +31,8 @@ To use Github as a repository for R code and data files as well as to use R mark
 5. merge.R – contains .R code that merges GDPdata.csv and Educationraw.csv into MergeData1 and creates subsets for later analysis
 
 "Yao Yao MSDS 6306 401 Case Study1 Makefile.txt" is the full composition of the R code from beginning to end, which combined the gather, clean, and analysis procedures.
+
+"VariableDescriptions.Rmd" is the markdown file that describes the column names
 
 "GDPWeb.csv" is the original data taken from http://data.worldbank.org/data-catalog/GDP-ranking-table, which was last updated on 01-Feb-2017.
 
